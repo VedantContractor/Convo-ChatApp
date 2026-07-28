@@ -40,7 +40,7 @@
     const getCurrentUser = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/v1/user/me",
+          `${import.meta.env.VITE_API_URL}/api/v1/user/me`,
           {
             withCredentials: true,
           }
@@ -60,7 +60,7 @@
 
     useEffect(()=>{
       if(authUser){
-        const socket=io('http://localhost:8080',{
+        const socket=io('http://`${import.meta.env.VITE_API_URL}`',{
           query:{
             userId:authUser._id
           },

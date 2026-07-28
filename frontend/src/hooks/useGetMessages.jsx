@@ -15,7 +15,7 @@ const useGetMessages = () => {
       try {
         axios.defaults.withCredentials = true;
         const res = await axios.get(
-          `http://localhost:8080/api/v1/message/${selectedUser._id}`
+          `http://`${import.meta.env.VITE_API_URL}`/api/v1/message/${selectedUser._id}`
         );
        
         dispatch(setMessages(res.data));
