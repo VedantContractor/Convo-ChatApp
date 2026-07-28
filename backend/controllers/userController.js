@@ -104,7 +104,11 @@ export const getMe = async (req, res) => {
       profilePhoto: user.profilePhoto,
     });
   } catch (error) {
-    console.log(error);
+     console.error(err);
+  return res.status(500).json({
+    message: "Internal Server Error",
+    success: false,
+  });
   }
 };
 
