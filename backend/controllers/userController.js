@@ -83,7 +83,11 @@ export const login = async (req, res) => {
         profilePhoto: user.profilePhoto,
       });
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+      success: false,
+    });
   }
 };
 
@@ -104,11 +108,11 @@ export const getMe = async (req, res) => {
       profilePhoto: user.profilePhoto,
     });
   } catch (error) {
-     console.error(err);
-  return res.status(500).json({
-    message: "Internal Server Error",
-    success: false,
-  });
+    console.error(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+      success: false,
+    });
   }
 };
 
@@ -119,7 +123,11 @@ export const logout = async (req, res) => {
       .cookie("token", "", { maxAge: 0, httpOnly: true, sameSite: "strict" })
       .json({ message: "Logged out successfully" });
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+      success: false,
+    });
   }
 };
 
@@ -131,6 +139,10 @@ export const getOtherUsers = async (req, res) => {
     );
     return res.status(200).json(otherUsers);
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+      success: false,
+    });
   }
 };
