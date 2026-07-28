@@ -40,7 +40,7 @@
     const getCurrentUser = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}np/api/v1/user/me`,
+          `${import.meta.env.VITE_API_URL}/api/v1/user/me`,
           {
             withCredentials: true,
           }
