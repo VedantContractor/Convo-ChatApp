@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://`${import.meta.env.VITE_API_URL}`/api/v1/user/login",
+        `${import.meta.env.VITE_API_URL}/api/v1/user/login`,
         user,
         {
           headers: {
