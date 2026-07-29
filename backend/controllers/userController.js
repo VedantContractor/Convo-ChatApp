@@ -91,30 +91,30 @@ console.log("JWT_SECRET_KEY =", process.env.JWT_SECRET_KEY);
   }
 };
 
-export const getMe = async (req, res) => {
-  try {
-    const user = await User.findById(req.id).select("-password");
+// export const getMe = async (req, res) => {
+//   try {
+//     const user = await User.findById(req.id).select("-password");
 
-    if (!user) {
-      return res.status(404).json({
-        message: "User not found",
-      });
-    }
+//     if (!user) {
+//       return res.status(404).json({
+//         message: "User not found",
+//       });
+//     }
 
-    return res.status(200).json({
-      _id: user._id,
-      username: user.username,
-      fullName: user.fullName,
-      profilePhoto: user.profilePhoto,
-    });
-  } catch (error) {
-    console.error(err);
-    return res.status(500).json({
-      message: "Internal Server Error",
-      success: false,
-    });
-  }
-};
+//     return res.status(200).json({
+//       _id: user._id,
+//       username: user.username,
+//       fullName: user.fullName,
+//       profilePhoto: user.profilePhoto,
+//     });
+//   } catch (error) {
+//     console.error(err);
+//     return res.status(500).json({
+//       message: "Internal Server Error",
+//       success: false,
+//     });
+//   }
+// };
 
 export const logout = async (req, res) => {
   try {
