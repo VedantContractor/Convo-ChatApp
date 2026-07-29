@@ -15,20 +15,9 @@
 
 
 
-  const router=createBrowserRouter([
-    {
-      path:"/",
-      element:<HomePage/>
-    },
-    {
-      path:"/signup",
-      element:<Signup/>
-    },
-    {
-      path:"/login",
-      element:<Login/>
-    }
-  ])
+  import { Navigate } from "react-router-dom";
+
+
 
   function App() {
     const dispatch=useDispatch()
@@ -81,6 +70,23 @@
       }
 
     },[authUser])
+
+    const router = createBrowserRouter([
+  {
+    path: "/",
+    element: authUser ? <HomePage /> : <Navigate to="/login" replace />,
+  },
+  {
+    path: "/login",
+    element: authUser ? <Navigate to="/" replace /> : <Login />,
+  },
+  {
+    path: "/signup",
+    element: authUser ? <Navigate to="/" replace /> : <Signup />,
+  },
+]);
+
+
     return (
       <div className="container mx-auto">
       <RouterProvider router={router} />
