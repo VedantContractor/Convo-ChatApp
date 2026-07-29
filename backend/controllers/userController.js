@@ -120,8 +120,16 @@ export const logout = async (req, res) => {
   try {
     return res
       .status(200)
-      .cookie("token", "", { maxAge: 0, httpOnly: true, sameSite: "strict" })
-      .json({ message: "Logged out successfully" });
+      .cookie("token", "", {
+        maxAge: 0,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      })
+      .json({
+        message: "Logged out successfully",
+        success: true,
+      });
   } catch (err) {
     console.error(err);
     return res.status(500).json({

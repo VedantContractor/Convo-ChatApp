@@ -17,13 +17,19 @@ function Sidebar() {
   const navigate=useNavigate()
   const logoutHandler=async()=>{
     try {
-      const res=await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/logout`)
-      navigate("/")
+      const res=await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/logout`,
+        {
+          withCredentials:true
+        }
+      )
+
+      
       toast.success(res.data.message)
-       dispatch(setAuthUser(null));
-       dispatch(setMessages(null));
-       dispatch(setOtherUsers(null));
-       dispatch(setSelectedUser(null));
+      dispatch(setAuthUser(null));
+      dispatch(setMessages(null));
+      dispatch(setOtherUsers(null));
+      dispatch(setSelectedUser(null));
+      navigate("/")
       
     } catch (error) {
       console.log(error)
