@@ -21,11 +21,7 @@ const Message = ({ message }) => {
       <div className="chat-image avatar">
         <div className="w-10 rounded-full ring ring-cyan-500/40 ring-offset-2 ring-offset-zinc-900">
           <img
-            src={
-              isSender
-                ? authUser?.profilePhoto
-                : selectedUser?.profilePhoto
-            }
+            src={isSender ? authUser?.profilePhoto : selectedUser?.profilePhoto}
             alt="profile"
           />
         </div>
@@ -33,7 +29,13 @@ const Message = ({ message }) => {
 
       {/* Time */}
       <div className="chat-header mb-1">
-        <time className="text-[11px] text-gray-500">12:45 PM</time>
+        <time className="text-[11px] text-gray-500">
+          {new Date(message.createdAt).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+          })}
+        </time>
       </div>
 
       {/* Message Bubble */}
