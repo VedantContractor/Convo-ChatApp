@@ -39,7 +39,7 @@ function Sidebar() {
     }
 
     const conversationUser = otherUsers?.find((user) =>
-      user.fullName?.toLowerCase().includes(normalizedSearch)
+      user.fullName?.toLowerCase()?.includes(normalizedSearch)
     );
 
     if (!conversationUser) {
