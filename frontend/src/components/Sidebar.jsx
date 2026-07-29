@@ -18,7 +18,7 @@ function Sidebar() {
   const logoutHandler=async()=>{
     try {
       const res=await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/logout`)
-      navigate("/login")
+      navigate("/")
       toast.success(res.data.message)
        dispatch(setAuthUser(null));
        dispatch(setMessages(null));
