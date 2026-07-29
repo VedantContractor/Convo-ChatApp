@@ -29,7 +29,7 @@ const Message = ({ message }) => {
 
       {/* Time */}
       <div className="chat-header mb-1">
-        <time className="text-[11px] text-gray-500">
+        <time className="text-[11px] text-cyan-400">
           {new Date(message.createdAt).toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
