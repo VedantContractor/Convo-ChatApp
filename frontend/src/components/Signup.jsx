@@ -16,7 +16,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "`${import.meta.env.VITE_API_URL}`/api/v1/user/register",
+        `${import.meta.env.VITE_API_URL}/api/v1/user/register`,
         user,
         {
           headers: {
