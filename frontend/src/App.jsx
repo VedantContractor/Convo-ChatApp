@@ -25,26 +25,26 @@
     const {socket}=useSelector((store)=>store.socket)
 
 
-  //     useEffect(() => {
-  //   const getCurrentUser = async () => {
-  //     try {
-  //       const res = await axios.get(
-  //         `${import.meta.env.VITE_API_URL}/api/v1/user/me`,
-  //         {
-  //           withCredentials: true,
-  //         }
-  //       );
+      useEffect(() => {
+    const getCurrentUser = async () => {
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/v1/user/me`,
+          {
+            withCredentials: true,
+          }
+        );
 
-  //       dispatch(setAuthUser(res.data));
-  //     } catch (err) {
-  //       dispatch(setAuthUser(null));
-  //     }finally {
-  //     dispatch(setLoading(false));
-  //   }
-  //   };
+        dispatch(setAuthUser(res.data));
+      } catch (err) {
+        dispatch(setAuthUser(null));
+      }finally {
+      dispatch(setLoading(false));
+    }
+    };
 
-  //   getCurrentUser();
-  // }, []);
+    getCurrentUser();
+  }, []);
 
 
     useEffect(()=>{
