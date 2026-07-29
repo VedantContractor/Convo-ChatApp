@@ -5,7 +5,11 @@ import { useSelector } from 'react-redux';
 
 
 function HomePage() {
-  const { loading } = useSelector((store) => store.user);
+  const { loading,authUser} = useSelector((store) => store.user);
+  if (!authUser) {
+    return <Navigate to="/login" replace />;
+  }
+
 
 if (loading) {
   return (

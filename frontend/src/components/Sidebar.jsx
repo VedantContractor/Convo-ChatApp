@@ -20,7 +20,11 @@ function Sidebar() {
       const res=await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/user/logout`)
       navigate("/login")
       toast.success(res.data.message)
-      dispatch(setAuthUser(null))
+       dispatch(setAuthUser(null));
+       dispatch(setMessages(null));
+       dispatch(setOtherUsers(null));
+       dispatch(setSelectedUser(null));
+      
     } catch (error) {
       console.log(error)
     }

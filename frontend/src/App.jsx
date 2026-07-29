@@ -57,7 +57,7 @@
           
         })  
         dispatch(setSocket(socket))
-        socket.on('getOnlineUsers',(onlineUsers)=>{
+        socket?.on('getOnlineUsers',(onlineUsers)=>{
           dispatch(setOnlineUsers(onlineUsers))
         })  
         return ()=> socket.close()
