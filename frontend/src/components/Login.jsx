@@ -27,10 +27,10 @@ const Login = () => {
         },
       );
 
+      dispatch(setAuthUser(res.data));
       navigate("/");
       
     
-      dispatch(setAuthUser(res.data));
 
     } catch (error) {
       toast.error(error.response.data.message);
