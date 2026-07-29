@@ -27,7 +27,7 @@ const Signup = () => {
       );
       if(res.data.success){
         toast.success(res.data.message);
-        navigate("/login");
+        navigate("/");
       }
       
     } catch (error) {
@@ -142,6 +142,7 @@ const Signup = () => {
           <div>
             <button
               type="submit"
+              
               className="btn btn-block btn-sm mt-2 border border-slate-500"
             >
               Signup
